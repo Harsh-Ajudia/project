@@ -1,0 +1,25 @@
+<div class="container main-width">
+    <div class="city-list">
+        <h4>City List</h4>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"># Id</th>
+                    <th scope="col">City Name</th>
+                    <th scope="col">Country Name</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Weather</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let city of cities;">
+                    <th scope="row">{{ city.id }}</th>
+                    <td>{{ city.name }}</td>
+                    <td>{{ city.country }}</td>
+                    <td><button class="btn btn-primary" (click)="editCity()">Edit</button></td>
+                    <td><a routerLink="/cities/view/{{ city.name }}">{{ city.name }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

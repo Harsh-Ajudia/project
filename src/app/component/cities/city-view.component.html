@@ -1,0 +1,97 @@
+<div *ngIf="viewCityData != ''; else elseBlock" class=" text-white">
+    <div class="back-image sunny-weather"></div>
+    <div class="container main-section main-width">
+        <div class="text-center">
+            <div class="main-details">
+                <h2>{{ viewCityData[11] }}, {{ viewCityData[8]['country'] }}</h2>
+                <p class="display-4">
+                    <img src="http://openweathermap.org/img/wn/{{ viewCityData[1][0]['icon'] }}@2x.png" alt="icon">
+                    {{ viewCityData[3]['temp'] - 273.5 | number}} &#176;C
+                </p>
+                <p class="">Last Updated: {{ viewCityData[7] | date: 'medium' }}</p>
+                <h6>{{ viewCityData[1][0]['main'] }}, {{ viewCityData[1][0]['description'] }}</h6>
+            </div>
+
+            <div class="geo-details">
+                <p class="h6">Lat: {{ viewCityData[0]['lat']}}, Lon: {{ viewCityData[0]['lon']}}</p>
+            </div>
+
+            <div class="other-stats mt-5 ">
+                <div class="row ">
+                    <div class="col-md-12 border-bottom">
+                        <div class="row justify-content-center ">
+                            <div class="col-sm-3">
+                                <i class="fas fa-temperature-low fa-4x w-100 mb-4"></i>
+                                Min. Temperature
+                                <p>{{ viewCityData[3]['temp_min'] - 273.5| number}} &#176;C</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fas fa-temperature-high fa-4x w-100 mb-4"></i>
+                                Max. Temperature
+                                <p>{{ viewCityData[3]['temp_max'] - 273.5 | number}} &#176;C</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fas fa-tachometer-alt fa-4x w-100 mb-4"></i>
+                                Pressure
+                                <p>{{ viewCityData[3]['pressure']}} mb</p>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="progress green mb-4">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">
+                                        {{ viewCityData[3]['humidity']}} %</div>
+                                </div>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 main-width border-bottom">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-3">
+                                <i class="fas fa-location-arrow fa-4x w-100 mb-4"></i>
+                                Speed
+                                <p>{{ viewCityData[5]['speed']| number}} Cm/h</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fas fa-temperature-low fa-4x w-100 mb-4"></i>
+                                Degree
+                                <p>{{ viewCityData[5]['deg']}}</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="far fa-eye fa-4x w-100 mb-4"></i>
+                                Visibility
+                                <p>{{ viewCityData[4]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 main-width">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-3">
+                                <i class="fas fa-sun fa-4x w-100 mb-4"></i>
+                                Sunrise
+                                {{ viewCityData[8]['sunrise'] | date: 'h : mm : ss a'}}
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fas fa-moon fa-4x w-100 mb-4"></i>
+                                Sunset
+                                {{ viewCityData[8]['sunset'] | date: 'h : mm : ss a'}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre>
+        {{ viewCityData|json }}
+    </pre>
+
+</div>
+<ng-template #elseBlock>Sorry No Data found for the city you are looking for. It is either an invalid search or the city
+    was not found</ng-template>

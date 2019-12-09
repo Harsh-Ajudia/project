@@ -1,0 +1,4 @@
+<div>
+    <p *ngFor="let user of usersData">{{ user.fname }} {{ user.lname }} : {{ user.email }} Link: <a
+            [routerLink]="['/users/view', user.id]">{{ user.fname }}</a></p>
+</div>
