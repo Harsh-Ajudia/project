@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
 
-var UsersController = require('./user/userController');
-var cityController = require('./cities/cityController');
+// controllers listing:
+var hotelController = require('./hotels/hotelController');
 
-app.use('/user', UsersController);
-app.use('/cities', cityController);
+app.use('/hotels', hotelController);
 module.exports = app;

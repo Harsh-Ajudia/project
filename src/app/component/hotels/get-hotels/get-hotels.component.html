@@ -1,0 +1,101 @@
+<div class="container main-width">
+    <h2>Singapore Hotels</h2>
+    <hr>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="searchString" name="searchterm" id="searchterm"
+                        placeholder="Hotel name" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select [(ngModel)]="sort" name="sort" id="sort" class="form-control">
+                        <option value>-- Sort --</option>
+                        <option value="price">Price</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select [(ngModel)]="order" name="order" id="order" class="form-control">
+                        <option value>-- Order --</option>
+                        <option value="ASC">Ascending</option>
+                        <option value="DESC">Descending</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <button (click)="search()" class="btn btn-success">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-2 col-md-3">
+            <h4>Filter</h4>
+            <hr>
+            <h5 class="mt-2">Region</h5>
+
+            <div class="neighbourhood">
+                <div *ngFor="let region of searchData" class="custom-control custom-radio">
+                    <input type="radio" value="{{ region.neighbourhood_group }}" id="{{ region.neighbourhood_group }}"
+                        [(ngModel)]="region_type" name="region_type" class="custom-control-input">
+                    <label class="custom-control-label"
+                        for="{{ region.neighbourhood_group }}">{{ region.neighbourhood_group }}</label>
+                </div>
+            </div>
+            <div class="my-3">
+                <button (click)="search()" class="btn btn-sm btn-primary">Apply</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-12 text-right">
+                <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
+            </div>
+            <div *ngIf="viewHotelsData.length > 0; else emptyRecords" class="row">
+                <div class="col-md-12 main-width">
+                    <h5>{{ viewHotelsData.length }} result(s) found for your Query</h5>
+                </div>
+                <div *ngFor="let hotel of viewHotelsData | paginate: { itemsPerPage: 9, currentPage: pageNumber }; let index  = index;"
+                    class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card">
+                        <img src="assets/images/modern-styled-house-with-overviewing-swimming-pool-2034335.jpg"
+                            class="img-fluid" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><a class="text-primary" routerLink="/hotels/view/{{ hotel.id }}">
+                                    {{ hotel.name }}</a></h5>
+
+                            <p>Neighbourhood : {{ hotel.neighbourhood }}</p>
+                            <p>Room : {{ hotel.room_type }}</p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item h4 text-success">{{ hotel.price|currency:'USD' }}</li>
+                                <li class="list-inline-item float-right">
+                                    <a routerLink="/hotels/view/{{ hotel.id }}" class="btn btn-outline-primary">View</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-right">
+                    <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
+                </div>
+            </div>
+            <ng-template #emptyRecords>
+                <h5>No result(s) found for your Query</h5>
+            </ng-template>
+        </div>
+    </div>
+</div>

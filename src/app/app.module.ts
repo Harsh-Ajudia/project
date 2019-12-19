@@ -5,27 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /* Custom imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { UsersComponent } from './component/users/users.component';
-import { UsersViewComponent } from './component/users/users-view.component';
-import { CityViewComponent } from './component/cities/city-view.component';
-import { CitiesComponent } from './component/cities/cities.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CreateCitiesComponent } from './component/create-cities/create-cities.component';
-import { CityListComponent } from './component/city-list/city-list.component';
-
+import { GetHotelsComponent } from './component/hotels/get-hotels/get-hotels.component';
+import { ViewHotelComponent } from './component/hotels/view-hotel/view-hotel.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TopHeaderComponent } from './component/top-header/top-header.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UsersComponent,
-    CityViewComponent,
-    CitiesComponent,
-    CreateCitiesComponent,
-    CityListComponent,
+    GetHotelsComponent,
+    ViewHotelComponent,
+    TopHeaderComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,11 +37,13 @@ import { CityListComponent } from './component/city-list/city-list.component';
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
-    UsersViewComponent
+    NgxPaginationModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
+
 }
