@@ -8,9 +8,9 @@ import { ViewHotelComponent } from './component/hotels/view-hotel/view-hotel.com
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-
+import { HomeComponentComponent } from './component/home-component/home-component.component';
 const routes: Routes = [
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponentComponent },
   { path: 'get-hotels', component: GetHotelsComponent },
   { path: 'hotels/view/:id', component: ViewHotelComponent },
   { path: 'contact', component: ContactUsComponent },

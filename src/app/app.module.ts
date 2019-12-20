@@ -19,6 +19,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { HomeComponentComponent } from './component/home-component/home-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
     ContactUsComponent,
     AboutUsComponent,
     PageNotFoundComponent,
+    HomeComponentComponent,
   ],
   imports: [
     BrowserModule,
