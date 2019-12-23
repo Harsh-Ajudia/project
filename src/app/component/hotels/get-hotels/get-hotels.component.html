@@ -45,10 +45,15 @@
     <div class="row justify-content-center">
         <div class="col-md-2 col-md-3">
             <h4>Filter</h4>
-            <hr>
-            <h5 class="mt-2">Region</h5>
+            <h5 class="mt-4">Region</h5>
 
             <div class="neighbourhood">
+                <div class="custom-control custom-radio">
+                    <input type="radio" value="" id="all"
+                        [(ngModel)]="region_type" name="region_type" class="custom-control-input" checked>
+                    <label class="custom-control-label"
+                        for="all">All</label>
+                </div>
                 <div *ngFor="let region of searchData" class="custom-control custom-radio">
                     <input type="radio" value="{{ region.neighbourhood_group }}" id="{{ region.neighbourhood_group }}"
                         [(ngModel)]="region_type" name="region_type" class="custom-control-input">

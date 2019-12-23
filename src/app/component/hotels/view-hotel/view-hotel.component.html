@@ -1,6 +1,6 @@
 <div class="container main-width">
     <h2>Singapore Hotels</h2>
-    
+
     <hr>
     <div class="text-right"><button (click)="backClicked()" class="btn btn-dark">Back to listing</button></div>
     <div class="row main-width">
@@ -16,11 +16,7 @@
                     <p>Room : {{ hotel.room_type }}</p>
                     <ul class="list-inline">
                         <li class="list-inline-item h4 text-success">{{ hotel.price|currency:'USD' }}</li>
-                        <li class="list-inline-item float-right ">
-                            <a routerLink="/hotels/view/{{ hotel.id }}" class="btn btn-outline-primary">View</a>
-                        </li>
                     </ul>
-
                 </div>
             </div>
         </div>

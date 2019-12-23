@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Account No</th>
+                        <th scope="col">Transaction Details</th>
+                        <th scope="col">Value Date</th>
+                        <th scope="col">Withdrawal AMT</th>
+                        <th scope="col">Deposit AMT</th>
+                        <th scope="col">Balance AMT</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let record of accountData">
+                        <th scope="row">1</th>
+                        <td>{{ record.Date}}</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

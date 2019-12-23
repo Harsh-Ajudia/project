@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-
+import { AddService } from '../../services/contacts/add.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -8,7 +8,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 })
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
-  constructor( private _formBuilder: FormBuilder ) { }
+  public contactResponse = [];
+  constructor( private _formBuilder: FormBuilder, private _addContactService: AddService ) { }
 
   // fullname: ['', Validators.required],
   //     email: [''],
@@ -17,7 +18,7 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this._formBuilder.group({
-      fullname: [''],
+      name: [''],
       email: [''],
       subject: [''],
       message: [''],
@@ -27,7 +28,7 @@ export class ContactUsComponent implements OnInit {
   onLoadDataClick() {
     //this.contactForm.setValue({
     this.contactForm.patchValue({
-      fullname: "harsh", 
+      name: "harsh", 
       email: "email@gmail.com",
       subject: "angular",
       message: "this is a message"
@@ -35,6 +36,10 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.contactForm);
+    let form = this.contactForm.value;
+    this._addContactService.add(form).subscribe(
+      (data) => {
+        this.contactResponse = Array.from(Object.keys(data), k => data[k]);
+      });
   }
 }

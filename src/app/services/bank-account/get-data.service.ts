@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AddService {
-  private addContact = "http://localhost:3000/contact/add-contact";
+export class GetDataService {
+  private getAccountDetailsUrl = "https://jsonplaceholder.typicode.com/todos/1";
   constructor( private _http: HttpClient) { }
 
-  add(form:any) {
-    var response = this._http.post(this.addContact, form);
+  getAccountDetails() {
+    var response = this._http.get(this.getAccountDetailsUrl);
     return response;
   }
 }
