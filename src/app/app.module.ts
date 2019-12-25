@@ -20,7 +20,6 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponentComponent } from './component/home-component/home-component.component';
-import { GetDetailsComponent } from './component/bank-account/get-details/get-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,6 @@ import { GetDetailsComponent } from './component/bank-account/get-details/get-de
     AboutUsComponent,
     PageNotFoundComponent,
     HomeComponentComponent,
-    GetDetailsComponent,
   ],
   imports: [
     BrowserModule,
