@@ -2,16 +2,16 @@
     <h2>Singapore Hotels</h2>
 
     <hr>
-    <div class="text-right"><button (click)="backClicked()" class="btn btn-dark">Back to listing</button></div>
+    <div class="text-right">
+        <button (click)="backClicked()" class="btn btn-dark">Back to listing</button>
+    </div>
     <div class="row main-width">
         <div *ngFor="let hotel of viewHotelData; let index  = index" class="col-md-4">
             <div class="card">
                 <img src="assets/images/modern-styled-house-with-overviewing-swimming-pool-2034335.jpg"
                     class="img-fluid" alt="">
                 <div class="card-body">
-                    <h5 class="card-title"><a class="text-primary" routerLink="/hotels/view/{{ hotel.id }}">
-                            {{ hotel.name }}</a></h5>
-
+                    <h5 class="card-title">{{ hotel.name }}</h5>
                     <p>Neighbourhood : {{ hotel.neighbourhood }}</p>
                     <p>Room : {{ hotel.room_type }}</p>
                     <ul class="list-inline">

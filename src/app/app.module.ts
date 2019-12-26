@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-/* Custom imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,6 +19,8 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponentComponent } from './component/home-component/home-component.component';
+import { AlertComponent } from './component/alert/alert.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { HomeComponentComponent } from './component/home-component/home-componen
     AboutUsComponent,
     PageNotFoundComponent,
     HomeComponentComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

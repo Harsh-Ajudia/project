@@ -26,12 +26,12 @@ export class GetHotelsComponent implements OnInit {
       (data) => {
         this.viewHotelsData = Array.from(Object.keys(data), k => data[k]);
       });
-      
-      this._getHotelsService.getSearchData().subscribe(
-        (data) => {
+
+    this._getHotelsService.getSearchData().subscribe(
+      (data) => {
         this.searchData = Array.from(Object.keys(data), k => data[k]);
       });
-      this.count = Object.keys(this.viewHotelsData).length;
+    this.count = Object.keys(this.viewHotelsData).length;
   }
   search() {
     let string: string = '';
@@ -39,13 +39,12 @@ export class GetHotelsComponent implements OnInit {
     string = string.concat("&sort=" + this.sort);
     string = string.concat("&order=" + this.order);
     string = string.concat("&region_type=" + this.region_type);
-    console.log(string);
     this._getHotelsService.searchHotels(string).subscribe(
       (data) => {
         this.viewHotelsData = Array.from(Object.keys(data), k => data[k]);
       });
-      this.pageNumber = 1;
-      this.count = Object.keys(this.viewHotelsData).length;
+    this.pageNumber = 1;
+    this.count = Object.keys(this.viewHotelsData).length;
   }
 
 }

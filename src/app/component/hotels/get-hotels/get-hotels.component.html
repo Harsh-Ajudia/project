@@ -1,5 +1,5 @@
 <div class="container main-width">
-    <h2>Singapore Hotels</h2>
+    <h2> Hotels</h2>
     <hr>
 
     <div class="container">
@@ -49,10 +49,9 @@
 
             <div class="neighbourhood">
                 <div class="custom-control custom-radio">
-                    <input type="radio" value="" id="all"
-                        [(ngModel)]="region_type" name="region_type" class="custom-control-input" checked>
-                    <label class="custom-control-label"
-                        for="all">All</label>
+                    <input type="radio" value="" id="all" [(ngModel)]="region_type" name="region_type"
+                        class="custom-control-input" checked>
+                    <label class="custom-control-label" for="all">All</label>
                 </div>
                 <div *ngFor="let region of searchData" class="custom-control custom-radio">
                     <input type="radio" value="{{ region.neighbourhood_group }}" id="{{ region.neighbourhood_group }}"
@@ -79,7 +78,8 @@
                         <img src="assets/images/modern-styled-house-with-overviewing-swimming-pool-2034335.jpg"
                             class="img-fluid" alt="">
                         <div class="card-body">
-                            <h5 class="card-title"><a class="text-primary" routerLink="/hotels/view/{{ hotel.id }}">
+                            <h5 class="card-title"><a class="text-primary" routerLink="/hotels/view"
+                                    [queryParams]="{id: hotel.id}" queryParamsHandling="merge">
                                     {{ hotel.name }}</a></h5>
 
                             <p>Neighbourhood : {{ hotel.neighbourhood }}</p>
@@ -87,7 +87,8 @@
                             <ul class="list-inline">
                                 <li class="list-inline-item h4 text-success">{{ hotel.price|currency:'USD' }}</li>
                                 <li class="list-inline-item float-right">
-                                    <a routerLink="/hotels/view/{{ hotel.id }}" class="btn btn-outline-primary">View</a>
+                                    <a [routerLink]="['/hotels/view']" [queryParams]="{id: hotel.id}" queryParamsHandling="merge"
+                                        class="btn btn-outline-primary">View</a>
                                 </li>
                             </ul>
 

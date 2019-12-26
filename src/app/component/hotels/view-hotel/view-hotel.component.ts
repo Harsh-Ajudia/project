@@ -10,17 +10,26 @@ import { Location } from '@angular/common';
 export class ViewHotelComponent implements OnInit {
 
   public viewHotelData = [];
-  constructor(private _getHotelsService: GetHotelsService, private _activatedRoute: ActivatedRoute, private _location: Location) { }
+  public hotelId: number;
+  constructor(private _router: Router, private _getHotelsService: GetHotelsService, private _activatedRoute: ActivatedRoute, private _location: Location) { }
 
   ngOnInit() {
-    let hotelId = this._activatedRoute.snapshot.params['id'];
-    this._getHotelsService.viewHotel(hotelId).subscribe(
+    // let hotelId = this._activatedRoute.queryParams.subscribe['id'];
+    this._activatedRoute.queryParams.subscribe(params => {
+      this.hotelId = params['id'];
+    });
+    this._getHotelsService.viewHotel(this.hotelId).subscribe(
       (data) => {
         this.viewHotelData = Array.from(Object.keys(data), k => data[k]);
       });
   }
   backClicked() {
-    this._location.back();
+    const queryParams = {};
+    queryParams['id'] = this.hotelId;
+    this._router.navigate(['/get-hotels'], {
+      queryParams: queryParams,
+      queryParamsHandling: 'merge'
+    });
   }
 
 }

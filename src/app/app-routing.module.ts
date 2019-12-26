@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponentComponent },
   { path: '', component: HomeComponentComponent },
   { path: 'get-hotels', component: GetHotelsComponent },
-  { path: 'hotels/view/:id', component: ViewHotelComponent },
+  { path: 'hotels/view', component: ViewHotelComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'about', component: AboutUsComponent },
   { path: '**', component: PageNotFoundComponent },
