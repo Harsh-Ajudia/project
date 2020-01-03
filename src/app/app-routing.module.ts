@@ -9,6 +9,8 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponentComponent } from './component/home-component/home-component.component';
+import { GetUsersComponent } from './component/users/get-users/get-users.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponentComponent },
   { path: '', component: HomeComponentComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'hotels/view', component: ViewHotelComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'about', component: AboutUsComponent },
+  { path: 'users/get-users', component: GetUsersComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

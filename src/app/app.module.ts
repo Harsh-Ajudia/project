@@ -20,6 +20,7 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponentComponent } from './component/home-component/home-component.component';
 import { AlertComponent } from './component/alert/alert.component';
+import { GetUsersComponent } from './component/users/get-users/get-users.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AlertComponent } from './component/alert/alert.component';
     PageNotFoundComponent,
     HomeComponentComponent,
     AlertComponent,
+    GetUsersComponent,
   ],
   imports: [
     BrowserModule,
