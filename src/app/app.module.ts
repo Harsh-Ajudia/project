@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +20,8 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { HomeComponentComponent } from './component/home-component/home-component.component';
 import { AlertComponent } from './component/alert/alert.component';
 import { GetUsersComponent } from './component/users/get-users/get-users.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { GetUsersComponent } from './component/users/get-users/get-users.compone
     HomeComponentComponent,
     AlertComponent,
     GetUsersComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
