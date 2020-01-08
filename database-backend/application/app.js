@@ -5,6 +5,7 @@ var cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
+mongoose.set('useCreateIndex', true);
 
 mongoose.connect("mongodb+srv://user_read_write:XnTLUvmiDV88xTOB@cluster0-xzugn.mongodb.net/mean?retryWrites=true&w=majority")
     .then( () => {

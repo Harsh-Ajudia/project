@@ -10,5 +10,5 @@ module.exports=con;
 
 con.connect(function(err) {
 	if (err) throw err;
-		console.log("Database Connected!");
+		console.log("MySql DB Connected!");
 });
