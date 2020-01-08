@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-section">
+                <form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="form-signin">
+                    <div class="text-center mb-4">
+                        <h1 class="mb-3 ">Login</h1>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="email" name="email" ngModel #email="ngModel" class="form-control" placeholder="Email address" required
+                            autofocus email>
+                        <label for="inputEmail">Email address</label>
+                        <p *ngIf="email.invalid" class="muted invalid-feedback">Please enter a valid email address</p>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="password" name="password" ngModel #password="ngModel" class="form-control" placeholder="Password" required>
+                        <label for="inputPassword">Password</label>
+                        <p *ngIf="password.invalid" class="muted invalid-feedback">Please enter a password</p>
+                    </div>
+
+                    <div class="mb-3">
+                        New here? Create an <a routerLink="/sign-up" >account here</a>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
