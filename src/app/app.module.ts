@@ -22,6 +22,8 @@ import { AlertComponent } from './component/alert/alert.component';
 import { GetUsersComponent } from './component/users/get-users/get-users.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
+import { PostCreateComponent } from './component/posts/post-create/post-create.component';
+import { PostListComponent } from './component/posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
     GetUsersComponent,
     LoginComponent,
     SignUpComponent,
+    PostCreateComponent,
+    PostListComponent,
   ],
   imports: [
     BrowserModule,

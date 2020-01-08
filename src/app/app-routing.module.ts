@@ -12,6 +12,8 @@ import { HomeComponentComponent } from './component/home-component/home-componen
 import { GetUsersComponent } from './component/users/get-users/get-users.component';
 import { LoginComponent } from './component/auth/login/login.component';
 import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
+import { PostCreateComponent } from './component/posts/post-create/post-create.component';
+import { PostListComponent } from './component/posts/post-list/post-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponentComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'users/get-users', component: GetUsersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'posts/create', component: PostCreateComponent },
+  { path: 'posts/list', component: PostListComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -4,3 +4,7 @@ export interface AuthData {
     email: string,
     password: string
 }
+export interface LoginAuthData {
+    email: string,
+    password: string
+}
