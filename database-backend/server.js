@@ -1,4 +1,4 @@
-var app = require('./database-backend/application/app');
+var app = require('./application/app');
 var port = process.env.PORT || 3000;
 
 var server = app.listen(port, function() {
