@@ -93,13 +93,14 @@ router.post('/login', function (req, res, next) {
                 email: fetchedUser.email,
             }, 'vatican_cameos_is_the_string_typical_to_a_json_web_token_that_i_have_used',
                 {
-                    expiresIn: '3h',
+                    expiresIn: '1h',
                 });
 
             res.status(200).json({
-                _token: token,
+                token: token,
                 _status: 'success',
-                _message: 'You are logged in'
+                _message: 'You are logged in',
+				expiresIn: 3600
             });
         }).catch(
             err => {

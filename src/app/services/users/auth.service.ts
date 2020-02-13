@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { AuthData, LoginAuthData } from 'src/app/models/auth.model';
 import { Subject } from "rxjs";
-
+import { AlertService } from '../../services/_generic/alert.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +16,7 @@ export class AuthService {
   private authStatusListener = new Subject<boolean>();
 
 
-  constructor(private _httpClient: HttpClient, private router: Router) { }
+  constructor(private _httpClient: HttpClient, private router: Router, private alertService: AlertService) { }
 
   createUser(formData: any) {
     const authData: AuthData = {
@@ -28,16 +28,32 @@ export class AuthService {
 
     this._httpClient.post(this.createUserUrl, authData)
       .subscribe(response => {
-        console.log(response);
+        this.router.navigate(["/"]);
       });
   }
 
   login(email: string, password: string) {
     const authData: LoginAuthData = { email: email, password: password };
-    this._httpClient.post(this.loginUserUrl, authData)
+    this._httpClient
+      .post<{ token: string; expiresIn: number }>(
+        "http://localhost:3000/users/login",
+        authData
+      )
       .subscribe(response => {
-
-      })
+        const token = response.token;
+        this.token = token;
+        if (token) {
+          const expiresInDuration = response.expiresIn;
+          this.setAuthTimer(expiresInDuration);
+          this.isAuthenticated = true;
+          this.authStatusListener.next(true);
+          const now = new Date();
+          const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+          this.saveAuthData(token, expirationDate);
+          this.alertService.success("You have logged in");
+          this.router.navigate(["/"]);
+        }
+      });
   }
 
   getToken() {
